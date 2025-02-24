@@ -34,3 +34,7 @@ Set AzuraCast's Webhook URL to:
 ```
 https://yourdomain.com/AzuraCast_Webhook.php?key=your-secure-key
 ```
+
+
+### Preview "As is"
+![image](https://github.com/user-attachments/assets/4ec16d04-81e7-4c76-8d82-8e3a9fcc5a5c)
