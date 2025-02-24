@@ -1,15 +1,13 @@
 <?php
 session_start();
 
-// Path to the secure .env file
-$envFile = "/path/to/envfile/location/webhook.env";
+$envFile = "/path/to/env/file/webhook.env"; //CHANGE ME
 
 if (!file_exists($envFile)) {
     http_response_code(500);
     die(json_encode(["error" => "Missing .env file"]));
 }
 
-// Load .env variables
 $dotenv = parse_ini_file($envFile);
 $secret_api_key = $dotenv["AZURACAST_WEBHOOK_KEY"] ?? "";
 $discordWebhookUrl = $dotenv["DISCORD_WEBHOOK_URL"] ?? "";
@@ -44,9 +42,11 @@ $streamerName = htmlspecialchars(strip_tags($webhookData['live']['streamer_name'
 $listenerUnique = intval($webhookData['listeners']['unique'] ?? 0);
 $listenerTotal = intval($webhookData['listeners']['total'] ?? 0);
 $publicPlayerUrl = htmlspecialchars($webhookData['station']['public_player_url'] ?? "#");
-$albumArtUrl = htmlspecialchars($webhookData['now_playing']['song']['art'] ?? "https://URL-TO-ART-FILE.COM/LOGO.PNG"); // Default image if none provided
+$albumArtUrl = htmlspecialchars($webhookData['now_playing']['song']['art'] ?? "https://your-url-here.tld/logo.png"); // Default artwork if none provided
 $bitrate = intval($webhookData['station']['bitrate'] ?? 128); 
 $format = htmlspecialchars(strip_tags($webhookData['station']['format'] ?? "MP3"));
+
+// Timezone Hell
 $timezone = new DateTimeZone("America/Denver");
 $datetime = new DateTime("now", $timezone);
 $timezoneAbbr = $datetime->format("T");
@@ -65,17 +65,22 @@ if (!empty($songArtist) && !empty($streamerName)) {
 // Determine stream status
 $streamStatus = !empty($streamerName) ? "🔴 **LIVE:** $streamerName" : "🎵 **Auto-DJ**";
 
-// Construct Discord Embed Message
 $embed = [
     "embeds" => [
         [
-            "title" => "RADIO NAME HERE",
-            "description" => "**$songTitle**\n🎤 *$artistDisplay*",
-            "color" => 0x800080, // Color of Embed
+            "title" => "YOUR-RADIO-NAME",
+            "url" => "https://your-url-here",  // Comment out to disable
+            "description" => "**Now Playing**\n*$songTitle*\n *$artistDisplay*", 
+            "color" => 0x800080, //Embed Color
             "thumbnail" => ["url" => $albumArtUrl],
             "fields" => [
-                [
-                    "name" => "📡 Status",
+				[
+                    "name" => "", //Invisible section
+					"value" => "᲼᲼",
+                    "inline" => false
+                ],
+				[
+                    "name" => "📡 Stream Status",
                     "value" => $streamStatus,
                     "inline" => true
                 ],
@@ -83,11 +88,11 @@ $embed = [
                     "name" => "👥 Listeners",
                     "value" => "$listenerUnique unique, $listenerTotal connected - [Join]($publicPlayerUrl)",
                     "inline" => true
-                ]
+                ],
             ],
             "footer" => [
                 "text" => "Bitrate: {$bitrate}kbps | Format: {$format} | Timezone: {$timezoneAbbr}",
-                "icon_url" => "https://URL-TO-LOGO-FILE.COM/LOGO.PNG"
+                "icon_url" => "https://your-url-here.tld/logo.png"
             ]
         ]
     ]
