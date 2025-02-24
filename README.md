@@ -1,4 +1,4 @@
-# 🎵 AzuraCast.Webhook-Processor
+# 🎶 AzuraCast.Webhook-Processor
 AzuraCast's built-in Webhook integration is limited and does not allow full customization.  
 **AzuraCast.Webhook-Processor** acts as a **translation layer**, giving you **complete control** over how webhook messages are sent to **Discord**.
 
@@ -20,7 +20,7 @@ cd AzuraCast.Webhook-Processor
 ```
 
 ### 2️⃣ Configure the .env File
-#### ⚠ Do not share this file! Keep it private.
+###### ⚠ Do not share this file! Keep it private.
 Create a .env file to store API keys and webhook settings.  
 Example:
 ```
