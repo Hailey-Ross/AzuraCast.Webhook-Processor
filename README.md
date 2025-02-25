@@ -64,4 +64,4 @@ You *could* further customize:
 
 ### ❤️ Support & Contributions  
 Contributions, feedback, and feature requests are welcome!  
-Feel free to submit an issue or pull request on GitHub.  
+Feel free to submit an issue or pull request.  
