@@ -45,10 +45,20 @@ $publicPlayerUrl = htmlspecialchars($webhookData['station']['public_player_url']
 $albumArtUrl = htmlspecialchars($webhookData['now_playing']['song']['art'] ?? "https://your-url-here.tld/art.png"); // Default artwork if none provided
 $bitrate = intval($webhookData['station']['mounts'][0]['bitrate'] ?? 0); 
 $format = htmlspecialchars(strip_tags($webhookData['station']['mounts'][0]['format'] ?? "Unknown"));
+$timezone = htmlspecialchars(strip_tags($webhookData['station']['timezone'] ?? ""));
 
 // Timezone Hell
-$timezone = new DateTimeZone("America/Denver");
-$datetime = new DateTime("now", $timezone);
+if (empty($timezone)) {
+    $timezone = "UTC";
+}
+
+try {
+    $timezoneObject = new DateTimeZone($timezone);
+} catch (Exception $e) {
+    $timezoneObject = new DateTimeZone("UTC"); 
+}
+
+$datetime = new DateTime("now", $timezoneObject);
 $timezoneAbbr = $datetime->format("T");
 
 // Determine how to display artist/DJ information
