@@ -24,15 +24,16 @@ cd Hails.Webhook-Processor
 ```
 
 ### 2️⃣ Configure the .env File
-###### 🔒 Keep this file private! Do not share it.
-Create a .env file to store API keys and webhook settings:
-
+###### 🔒 Keep this file private! Do not share it. 
+Create a .env file to store API keys and webhook settings.  
+This file should not be accessible to anyone on the web or in your webserver.  
 ```sh
 AZURACAST_WEBHOOK_KEY=your-secure-key
 DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your-webhook-url
 ```
 
 ### 3️⃣ Deploy & Connect to AzuraCast
+###### 🛑 DO NOT use the default your-secure-key value, if you have. Go back to the Previous step. Seriously.
 Upload AzuraCast_Webhook.php to your web server.
 Set AzuraCast's Webhook URL to:
 
