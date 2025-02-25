@@ -35,6 +35,7 @@ Set AzuraCast's Webhook URL to:
 https://yourdomain.com/AzuraCast_Webhook.php?key=your-secure-key
 ```
 
+---
 
 ### 🖼️ Preview "As is"
 **Live DJ**  
@@ -43,3 +44,4 @@ https://yourdomain.com/AzuraCast_Webhook.php?key=your-secure-key
 **Auto-DJ**  
 ![image](https://github.com/user-attachments/assets/7a6d547e-7b03-4b10-8816-892660cb7570)
 
+---
