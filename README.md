@@ -15,6 +15,15 @@ AzuraCast's built-in webhook integration is limited and lacks customization.
 
 ---
 
+## 🛑 Requirements
+- Webserver
+- Azuracast Server
+- Discord Server Webhook
+- Customization
+  - minor JSON knowledge
+
+---
+
 ## 📥 Installation
 
 ### 1️⃣ Clone or Download the Repository
