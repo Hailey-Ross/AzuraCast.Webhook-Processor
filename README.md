@@ -1,5 +1,5 @@
 # 🎶 Hails.Webhook-Processor
-AzuraCast's built-in webhook integration is limited and lacks customization.  
+AzuraCast's built-in webhook integration is limited and lacks basic customization.  
 **Hails.Webhook-Processor** acts as a **translation layer**, giving you **full control** over webhook messages sent to **Discord**.
 
 ---
@@ -17,10 +17,10 @@ AzuraCast's built-in webhook integration is limited and lacks customization.
 
 ## 🛑 Requirements
 - Webserver
-- Azuracast Server
+- Azuracast Station
 - Discord Server Webhook
 - Customization
-  - minor JSON knowledge
+  - some JSON/PHP knowledge
 
 ---
 
@@ -42,7 +42,7 @@ DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your-webhook-url
 ```
 
 ### 3️⃣ Deploy & Connect to AzuraCast
-###### 🛑 DO NOT use the default your-secure-key value, if you have. Go back to the Previous step. Seriously.
+###### 🛑 DO NOT use the default your-secure-key value, if you have. Go back to the previous step. Seriously.
 Upload AzuraCast_Webhook.php to your web server.
 Set AzuraCast's Webhook URL to:
 
@@ -52,7 +52,7 @@ https://yourdomain.com/AzuraCast_Webhook.php?key=your-secure-key
 
 ---
 
-### 🎨 Webhook Message Preview  
+## 🎨 Webhook Message Preview  
 🎵 **Live DJ Mode**  
 ![image](https://github.com/user-attachments/assets/4ec16d04-81e7-4c76-8d82-8e3a9fcc5a5c)
 
@@ -61,7 +61,7 @@ https://yourdomain.com/AzuraCast_Webhook.php?key=your-secure-key
 
 ---
 
-### 💡 Want to tweak the format?
+## 💡 Want to tweak the format?
 Check out `AzuraCast_Webhook.php` for easy adjustments.  
 You *could* further customize:  
 | Customization Type             | Examples |
@@ -72,6 +72,6 @@ You *could* further customize:
 | Embed styling | verbage, formatting |  
 
 
-### ❤️ Support & Contributions  
+## ❤️ Support & Contributions  
 Contributions, feedback, and feature requests are welcome!  
 Feel free to submit an issue or pull request.  
