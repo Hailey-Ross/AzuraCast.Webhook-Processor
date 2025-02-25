@@ -37,4 +37,9 @@ https://yourdomain.com/AzuraCast_Webhook.php?key=your-secure-key
 
 
 ### 🖼️ Preview "As is"
+**Live DJ**  
 ![image](https://github.com/user-attachments/assets/4ec16d04-81e7-4c76-8d82-8e3a9fcc5a5c)
+
+**Auto-DJ**  
+![image](https://github.com/user-attachments/assets/7a6d547e-7b03-4b10-8816-892660cb7570)
+
