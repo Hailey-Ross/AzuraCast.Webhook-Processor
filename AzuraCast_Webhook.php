@@ -86,7 +86,7 @@ $embed = [
             "fields" => [
 				[
                     "name" => "", //Invisible section
-					"value" => "᲼᲼",
+		    "value" => "᲼᲼",
                     "inline" => false
                 ],
 				[
