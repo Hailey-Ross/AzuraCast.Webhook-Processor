@@ -51,7 +51,7 @@ https://yourdomain.com/AzuraCast_Webhook.php?key=your-secure-key
 
 ---
 
-#### 💡 Want to tweak the format?
+### 💡 Want to tweak the format?
 Check out `AzuraCast_Webhook.php` for easy adjustments.  
 You *could* further customize:  
 | Customization Type             | Examples |
