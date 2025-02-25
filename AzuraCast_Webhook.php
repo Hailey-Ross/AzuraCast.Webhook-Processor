@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$envFile = "/path/to/env/file/webhook.env"; //CHANGE ME
+$envFile = "/path/to/env/file/webhook.env"; 
 
 if (!file_exists($envFile)) {
     http_response_code(500);
@@ -42,9 +42,9 @@ $streamerName = htmlspecialchars(strip_tags($webhookData['live']['streamer_name'
 $listenerUnique = intval($webhookData['listeners']['unique'] ?? 0);
 $listenerTotal = intval($webhookData['listeners']['total'] ?? 0);
 $publicPlayerUrl = htmlspecialchars($webhookData['station']['public_player_url'] ?? "#");
-$albumArtUrl = htmlspecialchars($webhookData['now_playing']['song']['art'] ?? "https://your-url-here.tld/logo.png"); // Default artwork if none provided
-$bitrate = intval($webhookData['station']['bitrate'] ?? 128); 
-$format = htmlspecialchars(strip_tags($webhookData['station']['format'] ?? "MP3"));
+$albumArtUrl = htmlspecialchars($webhookData['now_playing']['song']['art'] ?? "https://your-url-here.tld/art.png"); // Default artwork if none provided
+$bitrate = intval($webhookData['station']['mounts'][0]['bitrate'] ?? 0); 
+$format = htmlspecialchars(strip_tags($webhookData['station']['mounts'][0]['format'] ?? "Unknown"));
 
 // Timezone Hell
 $timezone = new DateTimeZone("America/Denver");
@@ -68,8 +68,8 @@ $streamStatus = !empty($streamerName) ? "🔴 **LIVE:** $streamerName" : "🎵 *
 $embed = [
     "embeds" => [
         [
-            "title" => "YOUR-RADIO-NAME",
-            "url" => "https://your-url-here",  // Comment out to disable
+            "title" => "YOUR-RADIO-NAME-HERE",
+            "url" => "https://hails.live",  // Comment out to disable
             "description" => "**Now Playing**\n*$songTitle*\n *$artistDisplay*", 
             "color" => 0x800080, //Embed Color
             "thumbnail" => ["url" => $albumArtUrl],
