@@ -20,7 +20,7 @@ AzuraCast's built-in webhook integration is limited and lacks basic customizatio
 - Azuracast Station
 - Discord Server Webhook
 - Customization
-  - some JSON/PHP knowledge
+  - very minor JSON/PHP knowledge
 
 ---
 
