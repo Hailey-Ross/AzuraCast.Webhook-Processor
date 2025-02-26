@@ -62,7 +62,7 @@ https://yourdomain.com/AzuraCord.php?key=your-secure-key
 ---
 
 ## 💡 Want to tweak the format?
-Check out `AzuraCord.php` for easy adjustments.  
+Check out [AzuraCord.php](https://github.com/Hailey-Ross/hails.Webhook-Processor/blob/main/AzuraCord.php) for easy adjustments.  
 You *could* further customize:  
 | Customization Type             | Examples |
 |------------------------------|------------|
