@@ -1,6 +1,6 @@
-# 🎶 Hails.Webhook-Processor
+# 🎶 hails.Webhook-Processor
 AzuraCast's built-in webhook integration is limited and lacks basic customization.  
-**Hails.Webhook-Processor** acts as a **translation layer**, giving you **full control** over webhook messages sent to **Discord**.
+**hails.Webhook-Processor** acts as a **translation layer**, giving you **full control** over webhook messages sent to **Discord**.
 
 ---
 
@@ -28,8 +28,8 @@ AzuraCast's built-in webhook integration is limited and lacks basic customizatio
 
 ### 1️⃣ Clone or Download the Repository
 ```sh
-git clone https://github.com/Hailey-Ross/Hails.Webhook-Processor.git
-cd Hails.Webhook-Processor
+git clone https://github.com/Hailey-Ross/hails.Webhook-Processor.git
+cd hails.Webhook-Processor
 ```
 
 ### 2️⃣ Configure the .env File
