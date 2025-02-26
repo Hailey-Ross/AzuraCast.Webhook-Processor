@@ -80,25 +80,23 @@ if (!empty($songArtist) && !empty($streamerName)) {
 // Determine stream status
 $streamStatus = !empty($streamerName) ? "🔴 **LIVE:** $streamerName" : "🎵 **Auto-DJ**";
 
-$embed = [ //Craft the Discord Embed
-    "username" => "", //Custom Webhook name, Comment out to disable this functionality
-    "avatar_url" => "https://your-site-here.com/", //Custom Webhook Avatar url, Comment out to disable this functionality
+$embed = [ // Craft the Discord Embed
     "embeds" => [
         [
-            "title" => "YOUR-RADIO-NAME-HERE", // Update to your Station's brand name
+            "title" => "YOUR-RADIO-NAME-HERE", // Update to your station's brand name
             "url" => "https://your-site-here.com/",  // Comment out to disable clickable title
             "description" => "**Now Playing**\n*$songTitle*\n *$artistDisplay*", 
-            "color" => 0x800080, //Embed highlight color
+            "color" => 0x800080, // Embed highlight color
             "thumbnail" => ["url" => $albumArtUrl],
             "fields" => [
-				[
-                    "name" => "", //Invisible section
-		    "value" => "᲼᲼", //these are invisible characters which will not allow Discord to collapse this seemingly empty field
+                [
+                    "name" => "", // Invisible section
+                    "value" => "᲼᲼", // These characters prevent Discord from collapsing the field
                     "inline" => false
                 ],
-				[
+                [
                     "name" => "📡 Stream Status",
-                    "value" => $streamStatus, //Results of the determination above about whether we are live or auto-djing
+                    "value" => $streamStatus, // Results of live vs. Auto-DJ check
                     "inline" => true
                 ],
                 [
@@ -109,13 +107,26 @@ $embed = [ //Craft the Discord Embed
             ],
             "footer" => [
                 "text" => "Bitrate: {$bitrate}kbps | Format: {$format} | Timezone: {$timezoneAbbr}",
-                "icon_url" => "https://your-url-here.tld/logo.png" //Change to your logo or set it to blank to have no image in your footer
+                "icon_url" => "https://your-url-here.tld/logo.png" // Change to your logo or remove it
             ]
         ]
     ]
 ];
 
-$jsonPayload = json_encode($embed);
+// **OPTIONAL: Add custom username and avatar
+$webhookOptions = [];
+$customUsername = "Webhook-Name-Here"; // Change this or set as "" to disable
+$customAvatarUrl = "https://your-site-here.com/avatar.png"; // Change or set to "" to disable
+
+if (!empty($customUsername)) {
+    $webhookOptions["username"] = $customUsername;
+}
+if (!empty($customAvatarUrl)) {
+    $webhookOptions["avatar_url"] = $customAvatarUrl;
+}
+
+$finalPayload = array_merge($webhookOptions, $embed);
+$jsonPayload = json_encode($finalPayload);
 
 $ch = curl_init($discordWebhookUrl);
 curl_setopt($ch, CURLOPT_POST, 1);
