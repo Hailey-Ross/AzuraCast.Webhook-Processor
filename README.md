@@ -1,5 +1,5 @@
 # 🎶 hails.Webhook-Processor
-AzuraCast's built-in webhook integration is limited and lacks basic customization.  
+Azuracast's built-in webhook integration is limited and lacks basic customization.  
 **hails.Webhook-Processor** acts as a **translation layer**, giving you **full control** over webhook messages sent to **Discord**.
 
 ---
