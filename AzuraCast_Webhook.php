@@ -79,7 +79,7 @@ $embed = [
     "embeds" => [
         [
             "title" => "YOUR-RADIO-NAME-HERE",
-            "url" => "https://hails.live",  // Comment out to disable
+            "url" => "https://your-site-here.com/",  // Comment out to disable
             "description" => "**Now Playing**\n*$songTitle*\n *$artistDisplay*", 
             "color" => 0x800080, //Embed Color
             "thumbnail" => ["url" => $albumArtUrl],
