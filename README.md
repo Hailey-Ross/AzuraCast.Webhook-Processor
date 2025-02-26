@@ -47,7 +47,7 @@ Upload AzuraCast_Webhook.php to your web server.
 Set AzuraCast's Webhook URL to:
 
 ```sh
-https://yourdomain.com/AzuraCast_Webhook.php?key=your-secure-key
+https://yourdomain.com/AzuraCord_Webhook.php?key=your-secure-key
 ```
 
 ---
@@ -62,7 +62,7 @@ https://yourdomain.com/AzuraCast_Webhook.php?key=your-secure-key
 ---
 
 ## 💡 Want to tweak the format?
-Check out `AzuraCast_Webhook.php` for easy adjustments.  
+Check out `AzuraCord_Webhook.php` for easy adjustments.  
 You *could* further customize:  
 | Customization Type             | Examples |
 |------------------------------|------------|
