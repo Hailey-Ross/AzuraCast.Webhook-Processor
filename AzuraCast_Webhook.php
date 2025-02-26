@@ -113,7 +113,7 @@ $embed = [ // Craft the Discord Embed
     ]
 ];
 
-// **OPTIONAL: Add custom username and avatar
+// OPTIONAL: Add custom username and avatar
 $webhookOptions = [];
 $customUsername = "Webhook-Name-Here"; // Change this or set as "" to disable
 $customAvatarUrl = "https://your-site-here.com/avatar.png"; // Change or set to "" to disable
