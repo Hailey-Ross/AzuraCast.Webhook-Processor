@@ -1,8 +1,9 @@
 <?php
 session_start();
 
-$envFile = "/path/to/env/file/webhook.env"; 
+$envFile = "/path/to/env/file/webhook.env"; //Update to your actual secure path that you have stored your .env file at
 
+//------------START-DO NOT TOUCH------------\\
 if (!file_exists($envFile)) {
     http_response_code(500);
     die(json_encode(["error" => "Missing .env file"]));
@@ -34,6 +35,7 @@ if (!$webhookData) {
     http_response_code(400);
     die(json_encode(["error" => "Invalid JSON payload"]));
 }
+//------------END-DO NOT TOUCH------------\\
 
 // Extract & sanitize fields
 $songTitle = htmlspecialchars(strip_tags($webhookData['now_playing']['song']['title'] ?? "Unknown Title"));
@@ -43,9 +45,12 @@ $listenerUnique = intval($webhookData['listeners']['unique'] ?? 0);
 $listenerTotal = intval($webhookData['listeners']['total'] ?? 0);
 $publicPlayerUrl = htmlspecialchars($webhookData['station']['public_player_url'] ?? "#");
 $albumArtUrl = htmlspecialchars($webhookData['now_playing']['song']['art'] ?? "https://your-url-here.tld/art.png"); // Default artwork if none provided
+$timezone = htmlspecialchars(strip_tags($webhookData['station']['timezone'] ?? ""));
+
+// These may require adjustments depending on your Azuracast setup.
+// Specifically the 0 may be different for you.
 $bitrate = intval($webhookData['station']['mounts'][0]['bitrate'] ?? 0); 
 $format = htmlspecialchars(strip_tags($webhookData['station']['mounts'][0]['format'] ?? "Unknown"));
-$timezone = htmlspecialchars(strip_tags($webhookData['station']['timezone'] ?? ""));
 
 // Timezone Hell
 if (empty($timezone)) {
@@ -75,23 +80,25 @@ if (!empty($songArtist) && !empty($streamerName)) {
 // Determine stream status
 $streamStatus = !empty($streamerName) ? "🔴 **LIVE:** $streamerName" : "🎵 **Auto-DJ**";
 
-$embed = [
+$embed = [ //Craft the Discord Embed
+    "username" => "", //Custom Webhook name, Comment out to disable this functionality
+    "avatar_url" => "https://your-site-here.com/", //Custom Webhook Avatar url, Comment out to disable this functionality
     "embeds" => [
         [
-            "title" => "YOUR-RADIO-NAME-HERE",
-            "url" => "https://your-site-here.com/",  // Comment out to disable
+            "title" => "YOUR-RADIO-NAME-HERE", // Update to your Station's brand name
+            "url" => "https://your-site-here.com/",  // Comment out to disable clickable title
             "description" => "**Now Playing**\n*$songTitle*\n *$artistDisplay*", 
-            "color" => 0x800080, //Embed Color
+            "color" => 0x800080, //Embed highlight color
             "thumbnail" => ["url" => $albumArtUrl],
             "fields" => [
 				[
                     "name" => "", //Invisible section
-		    "value" => "᲼᲼",
+		    "value" => "᲼᲼", //these are invisible characters which will not allow Discord to collapse this seemingly empty field
                     "inline" => false
                 ],
 				[
                     "name" => "📡 Stream Status",
-                    "value" => $streamStatus,
+                    "value" => $streamStatus, //Results of the determination above about whether we are live or auto-djing
                     "inline" => true
                 ],
                 [
@@ -102,7 +109,7 @@ $embed = [
             ],
             "footer" => [
                 "text" => "Bitrate: {$bitrate}kbps | Format: {$format} | Timezone: {$timezoneAbbr}",
-                "icon_url" => "https://your-url-here.tld/logo.png"
+                "icon_url" => "https://your-url-here.tld/logo.png" //Change to your logo or set it to blank to have no image in your footer
             ]
         ]
     ]
